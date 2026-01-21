@@ -140,7 +140,7 @@ PHONE_INPUT_APL = {
                                 {
                                     "type": "EditText",
                                     "id": "phoneInput",
-                                    "hint": "Enter 10-digit number",
+                                    "hint": "Enter 12-digit number",
                                     "keyboardType": "numberPad",
                                     "selectOnFocus": True,
                                     "secureInput": False,
