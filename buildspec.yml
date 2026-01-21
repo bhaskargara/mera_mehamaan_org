@@ -5,18 +5,15 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      - echo "No dependency installation required (using Lambda Layers)"
+      - echo "Install phase complete"
 
   build:
     commands:
-      - echo "Preparing deployment package"
-      - zip -r lambda.zip . -x "*.git*" "buildspec.yml"
+      - echo "Zipping Lambda code"
+      - zip -r lambda.zip . -x ".git/*" "buildspec.yml"
 
   post_build:
     commands:
-      - echo "Deploying to Lambda function: testing_hotel_minerva"
+      - echo "Deploying to Lambda testing_hotel_minerva"
       - aws lambda update-function-code --function-name testing_hotel_minerva --zip-file fileb://lambda.zip
 
-artifacts:
-  files:
-    - lambda.zip
