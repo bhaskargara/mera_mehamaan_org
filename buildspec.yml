@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Zipping Alexa Lambda source code"
+      - zip -r lambda.zip .
+
+  post_build:
+    commands:
+      - echo "Deploying code to Lambda: mera_mehemaan_demo"
+      - aws lambda update-function-code \
+        --function-name mera_mehemaan_demo \
+        --zip-file fileb://lambda.zip
