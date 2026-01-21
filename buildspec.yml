@@ -1,14 +1,24 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      python: 3.10
+    commands:
+      - echo "No dependency installation required (using Lambda Layers)"
+
   build:
     commands:
-      - echo "Zipping Alexa Lambda source code"
-      - zip -r lambda.zip .
+      - echo "Preparing deployment package"
+      - zip -r lambda.zip . -x "*.git*" "buildspec.yml"
 
   post_build:
     commands:
-      - echo "Deploying code to Lambda: mera_mehemaan_demo"
+      - echo "Deploying to Lambda function: testing_hotel_minerva"
       - aws lambda update-function-code \
-        --function-name mera_mehemaan_demo \
-        --zip-file fileb://lambda.zip
+          --function-name testing_hotel_minerva \
+          --zip-file fileb://lambda.zip
+
+artifacts:
+  files:
+    - lambda.zip
