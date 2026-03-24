@@ -1612,7 +1612,7 @@ def send_food_order_whatsapp(room_number, cart_items, total_price):
             )
 
         message_body = (
-            f"🍽️ *Mera Mehmaan – Food Order*\n\n"
+            f"🍽️ *Minerva Grand – Food Order*\n\n"
             f"Room Number: {room_number}\n"
             f"{'='*30}\n\n"
             f"*ORDER DETAILS:*\n\n"
@@ -1653,7 +1653,7 @@ class NoIntentHandler(AbstractRequestHandler):
             session_attr.pop("cab_room_number", None)
             session_attr.pop("cab_destination", None)
             
-            speak_output = "Thank you for using our Mera Mehmaan cab service. Have a wonderful day!"
+            speak_output = "Thank you for using our Minerva Grand cab service. Have a wonderful day!"
             
             # ADD YOUR APL DOCUMENT HERE
             apl_doc = {
@@ -1733,7 +1733,7 @@ class NoIntentHandler(AbstractRequestHandler):
                                             "fontFamily": "Amazon Ember"
                                         },
                                         
-                                        # Mera Mehmaan branding
+                                        # Minerva Grand branding
                                         {
                                             "type": "Frame",
                                             "backgroundColor": "rgba(255,165,0,0.15)",
@@ -1747,7 +1747,7 @@ class NoIntentHandler(AbstractRequestHandler):
                                             "items": [
                                                 {
                                                     "type": "Text",
-                                                    "text": "Mera Mehmaan 🙏",
+                                                    "text": "Minerva Grand 🙏",
                                                     "fontSize": "32dp",
                                                     "color": "#FFA500",
                                                     "fontWeight": "bold",
@@ -1921,7 +1921,7 @@ class NoIntentHandler(AbstractRequestHandler):
             logger.info(f"User said NO to room service - clearing room number {room_number}")
             session_attr.pop('room_number', None)
             
-            speak_output = "Thank you for using our Mera Mehmaan room service. Have a wonderful day!"
+            speak_output = "Thank you for using our Minerva Grand room service. Have a wonderful day!"
             
             # Room service thank you APL
             apl_doc = {
@@ -2001,7 +2001,7 @@ class NoIntentHandler(AbstractRequestHandler):
                                             "fontFamily": "Amazon Ember"
                                         },
                                         
-                                        # Mera Mehmaan branding
+                                        # Minerva Grand branding
                                         {
                                             "type": "Frame",
                                             "backgroundColor": "rgba(52,152,219,0.15)",
@@ -2015,7 +2015,7 @@ class NoIntentHandler(AbstractRequestHandler):
                                             "items": [
                                                 {
                                                     "type": "Text",
-                                                    "text": "Mera Mehmaan 🙏",
+                                                    "text": "Minerva Grand 🙏",
                                                     "fontSize": "32dp",
                                                     "color": "#3498db",
                                                     "fontWeight": "bold",
@@ -2104,7 +2104,7 @@ class HelpIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         speak_output = (
-            "Welcome to Mera Mehmaan! "
+            "Welcome to Minerva Grand! "
             "You can say: Room Service for housekeeping needs, "
             "Menu or Food to order from our restaurant, "
             "or Book a Cab for transportation. "
@@ -2127,7 +2127,7 @@ class CancelOrStopIntentHandler(AbstractRequestHandler):
                 ask_utils.is_intent_name("AMAZON.StopIntent")(handler_input))
 
     def handle(self, handler_input):
-        speak_output = "Thank you for choosing Mera Mehmaan. Have a wonderful day! Goodbye!"
+        speak_output = "Thank you for choosing Minerva Grand. Have a wonderful day! Goodbye!"
 
         return (
             handler_input.response_builder

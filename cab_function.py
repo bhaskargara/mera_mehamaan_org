@@ -122,13 +122,13 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         speak_output = (
-            "Welcome to Mera Mehmaan. "
+            "Welcome to Minerva Grand. "
             "You can say book a cab to get started."
         )
 
         render_apl(
             handler_input,
-            title="Welcome to Mera Mehmaan",
+            title="Welcome to Minerva Grand",
             subtitle="Luxury | Comfort | Service",
             footer="Say 'Book a cab' to continue"
         )
@@ -226,7 +226,7 @@ def send_cab_booking_whatsapp(room_number, destination, pickup_time):
         client = Client(account_sid, auth_token)
 
         message_body = (
-            f"🚕 *Mera Mehmaan – Cab Booking*\n\n"
+            f"🚕 *Minerva Grand – Cab Booking*\n\n"
             f"Room Number: {room_number}\n"
             f"Destination: {destination}\n"
             f"Pickup Time: {pickup_time}\n\n"

@@ -257,7 +257,7 @@ LAUNCH_APL_DOCUMENT = {
                                 "items": [
                                     {
                                         "type": "Text",
-                                        "text": "MERA MEHMAAN",
+                                        "text": "MINERVA GRAND",
                                         "style": "textStyleTitle",
                                         "paddingBottom": "8dp",
                                         "fontWeight": "bold"
@@ -301,7 +301,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return ask_utils.is_request_type("LaunchRequest")(handler_input)
     
     def handle(self, handler_input):
-        speak_output = ("Welcome to Mera Mehmaan! "
+        speak_output = ("Welcome to Minerva Grand! "
                        "You can say Room Service, Food, or Book a Cab. "
                        "How may I help you?")
         

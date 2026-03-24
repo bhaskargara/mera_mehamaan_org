@@ -38,7 +38,7 @@ def send_whatsapp_notification(room_number, item_name, recipient_phone):
         client = Client(account_sid, auth_token)
 
         message_body = (
-            f"🏨 *Mera Mehmaan – Room Service*\n\n"
+            f"🏨 *Minerva Grand – Room Service*\n\n"
             f"Room Number: {room_number}\n"
             f"Item: {item_name}\n\n"
             f"Please attend to the request for Room {room_number} shortly.\n"
@@ -187,7 +187,7 @@ def get_room_service_apl():
                             "items": [
                                 {
                                     "type": "Text",
-                                    "text": "Mera Mehmaan Room Service",
+                                    "text": "Minerva Grand Room Service",
                                     "fontSize": "@titleFontSize",
                                     "fontWeight": "bold",
                                     "color": "#000000",
@@ -371,7 +371,7 @@ class RoomServiceIntentHandler(AbstractRequestHandler):
             session_attr['room_number'] = random.choice(ROOM_NUMBERS)
         
         speak_output = (
-            "Mera Mehmaan Room Service. "
+            "Minerva Grand Room Service. "
             "You can request Extra Pillows, Extra Blankets, Trash Removal, Room Cleaning, Fresh Towels, and Newspaper. "
             "What would you like?"
         )
