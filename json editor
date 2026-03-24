@@ -1,0 +1,975 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "mera mehmaan",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "RoomServiceIntent",
+                    "slots": [],
+                    "samples": [
+                        "room service",
+                        "I need room service",
+                        "request room service",
+                        "call room service",
+                        "I want room service",
+                        "can I get room service",
+                        "room service please",
+                        "I'd like room service",
+                        "get me room service",
+                        "start room service"
+                    ]
+                },
+                {
+                    "name": "RoomServiceRequestIntent",
+                    "slots": [
+                        {
+                            "name": "serviceItem",
+                            "type": "RoomServiceItemType"
+                        }
+                    ],
+                    "samples": [
+                        "I need {serviceItem}",
+                        "I want {serviceItem}",
+                        "can I get {serviceItem}",
+                        "please {serviceItem}",
+                        "I'd like {serviceItem}",
+                        "get me {serviceItem}",
+                        "{serviceItem} please",
+                        "I need some {serviceItem}",
+                        "send me {serviceItem}",
+                        "bring me {serviceItem}",
+                        "can you send {serviceItem}",
+                        "I would like {serviceItem}",
+                        "can you take {serviceItem}"
+                    ]
+                },
+                {
+                    "name": "CabBookIntent",
+                    "slots": [],
+                    "samples": [
+                        "book a cab",
+                        "I need a cab",
+                        "book me a cab",
+                        "I want to book a taxi",
+                        "can you book a cab for me",
+                        "get me a cab",
+                        "arrange a cab",
+                        "I need a taxi",
+                        "call a cab",
+                        "order a cab",
+                        "book taxi",
+                        "I want a cab",
+                        "taxi please",
+                        "cab booking",
+                        "book a ride"
+                    ]
+                },
+                {
+                    "name": "CabDestinationIntent",
+                    "slots": [
+                        {
+                            "name": "destination",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "to {destination}",
+                        "I want to go to {destination}",
+                        "take me to {destination}",
+                        "going to {destination}",
+                        "{destination} please",
+                        "I need to go to {destination}",
+                        "my destination is {destination}",
+                        "drop me at {destination}",
+                        "to the {destination}"
+                    ]
+                },
+                {
+                    "name": "CabTimeIntent",
+                    "slots": [
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "at {time}",
+                        "pick me up at {time}",
+                        "{time} please",
+                        "around {time}",
+                        "at about {time}",
+                        "make it {time}",
+                        "schedule for {time}",
+                        "book it for {time}",
+                        "I need it at {time}"
+                    ]
+                },
+                {
+                    "name": "OrderFoodIntent",
+                    "slots": [
+                        {
+                            "name": "foodItem",
+                            "type": "submenuitemordered"
+                        }
+                    ],
+                    "samples": [
+                        "Order {foodItem}",
+                        "{foodItem}",
+                        "I want to order {foodItem}",
+                        "I would like to order {foodItem}",
+                        "I would like {foodItem}",
+                        "Can I have {foodItem}",
+                        "I'll have {foodItem}",
+                        "Get me {foodItem}",
+                        "Please order {foodItem}",
+                        "Add {foodItem} to my order",
+                        "I'd like to get {foodItem}",
+                        "Give me {foodItem}",
+                        "I feel like having {foodItem}",
+                        "Let's get {foodItem}",
+                        "Could you get me {foodItem}",
+                        "Bring me {foodItem}",
+                        "Serve me {foodItem}",
+                        "I'd love some {foodItem}",
+                        "Can you please bring {foodItem}",
+                        "Add one {foodItem}",
+                        "Add a {foodItem} to my plate",
+                        "Get one {foodItem} for me",
+                        "I'd like to have {foodItem} please",
+                        "Please get {foodItem}",
+                        "Let's order {foodItem}",
+                        "Can I get {foodItem}",
+                        "Get me one {foodItem}",
+                        "Please serve {foodItem}",
+                        "Give me one {foodItem}",
+                        "I'd like to order one {foodItem}",
+                        "Can I place an order for {foodItem}",
+                        "Order one {foodItem} for me",
+                        "{foodItem} get me",
+                        "{foodItem} please get me",
+                        "{foodItem} I want",
+                        "{foodItem} I would like",
+                        "{foodItem} I'd like to have",
+                        "{foodItem} I need",
+                        "{foodItem} can you get me",
+                        "{foodItem} bring me",
+                        "{foodItem} order for me",
+                        "{foodItem} please order",
+                        "{foodItem} I feel like having",
+                        "{foodItem} get that for me",
+                        "{foodItem} I'd love to have",
+                        "{foodItem} can I have",
+                        "{foodItem} get one for me",
+                        "{foodItem} add to my order",
+                        "{foodItem} please add",
+                        "{foodItem} get me one",
+                        "{foodItem} give me",
+                        "{foodItem} let's order"
+                    ]
+                },
+                {
+                    "name": "ProvideQuantityIntent",
+                    "slots": [
+                        {
+                            "name": "quantity",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "{quantity}",
+                        "just {quantity}",
+                        "only {quantity}",
+                        "I want {quantity}",
+                        "give me {quantity}",
+                        "add {quantity}",
+                        "I'll take {quantity}",
+                        "make that {quantity} please",
+                        "for {quantity}",
+                        "I need {quantity}",
+                        "give me {quantity}",
+                        "make that {quantity}",
+                        "let's go with {quantity}",
+                        "add {quantity}",
+                        "add {quantity} please",
+                        "set it to {quantity}",
+                        "change to {quantity}",
+                        "update to {quantity}",
+                        "make this {quantity}",
+                        "okay {quantity}",
+                        "alright {quantity}",
+                        "I'll take {quantity}",
+                        "order {quantity}",
+                        "quantity {quantity}",
+                        "choose {quantity}",
+                        "take {quantity}",
+                        "put {quantity}",
+                        "I would like {quantity}",
+                        "can you make it {quantity}",
+                        "please make it {quantity}",
+                        "make it {quantity} please",
+                        "I said {quantity}"
+                    ]
+                },
+                {
+                    "name": "MenuIntent",
+                    "slots": [],
+                    "samples": [
+                        "restaurant",
+                        "show menu",
+                        "dining and menu",
+                        "i want dining",
+                        "i want dining and menu",
+                        "menu",
+                        "menu please",
+                        "show me the menu",
+                        "what is the menu",
+                        "what is the menu today",
+                        "what food do you have",
+                        "Tell me today's menu",
+                        "What's on the menu",
+                        "List today's dishes",
+                        "What's available for lunch",
+                        "What can I eat",
+                        "what meals do you offer",
+                        "show today's food options",
+                        "tell me what is available",
+                        "what dishes do you have",
+                        "what are you serving today",
+                        "what items are available"
+                    ]
+                },
+                {
+                    "name": "GoBackIntent",
+                    "slots": [],
+                    "samples": [
+                        "go back",
+                        "back",
+                        "back to menu",
+                        "main menu",
+                        "back to main menu",
+                        "take me back",
+                        "return to main menu",
+                        "start over",
+                        "bring me back",
+                        "bring me to the main menu",
+                        "go to main menu",
+                        "go back to the previous screen",
+                        "return",
+                        "return to menu",
+                        "start from beginning",
+                        "restart",
+                        "take me to main menu",
+                        "take me to the menu",
+                        "go to menu",
+                        "back please"
+                    ]
+                },
+                {
+                    "name": "SubMenuIntent",
+                    "slots": [
+                        {
+                            "name": "category",
+                            "type": "submenufoodslot"
+                        }
+                    ],
+                    "samples": [
+                        "show {category}",
+                        "show me {category}",
+                        "{category}",
+                        "select {category}",
+                        "order from {category}",
+                        "what are the items in {category}",
+                        "list {category}",
+                        "tell me the items in {category}",
+                        "what do you have in {category}",
+                        "show me all {category} dishes",
+                        "what {category} are available",
+                        "list all {category} items",
+                        "what's in {category}",
+                        "what is there in {category}",
+                        "display the {category} menu",
+                        "tell me what is in {category}",
+                        "can you show {category} options",
+                        "give me the {category} list",
+                        "{category} show",
+                        "{category} show me",
+                        "I would like to {category}",
+                        "{category} list",
+                        "{category} list please",
+                        "{category} tell me",
+                        "{category} show all items",
+                        "{category} display menu",
+                        "{category} what do you have",
+                        "{category} show options",
+                        "{category} what are the dishes",
+                        "{category} show available items",
+                        "{category} tell me the items",
+                        "{category} what is available",
+                        "{category} menu please",
+                        "{category} give me list",
+                        "{category} show me items",
+                        "{category} I want to see",
+                        "{category} what's there",
+                        "{category} show me dishes",
+                        "{category} list of dishes",
+                        "I would like to see {category}",
+                        "I would like to order from {category}",
+                        "I would like to check {category}",
+                        "I would like to explore {category}",
+                        "I would like to view {category} menu"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "submenufoodslot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Buffet Breakfast"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fruits and Juices"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Indian Corner"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Healthy Breakfast"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Thali"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Main Course"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Evening Snacks"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hot Beverages"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cold Beverages"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Starters"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Desserts"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "submenuitemordered",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Gajar Ka Halwa with Ice Cream"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gajar Ka Halwa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fruit Salad with Ice Cream"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fruit Salad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Khubaani Ka Meetha with Ice Cream"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Khubaani Ka Meetha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gulab Jamun with Ice Cream"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gulab Jamun"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kaju Tomato Curry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mushroom Mutter Curry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "CHOICE OF POTATO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Subji Ki Bahar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Methi Chaman"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Choice of Kofta Curry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paneer Tikka Masala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paneer Aap Ki Pasand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Healthy Clear Soup"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sweet Corn Soup"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hot and Sour Soup"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Manchow Soup"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tomato Soup"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Masala Papad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Roasted Papad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fresh Green Salad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Special Thali"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "South Indian Thali"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cauliflower 65"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paneer 65"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paneer Majestic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paneer Tikka"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chilly Stuffed Mushroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Crispy Corn Chilly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Baby Corn Manchurian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vegetable Manchurian Dry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paneer Manchurian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chilli Paneer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Corn Salt N Pepper"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gobi Manchurian"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Golden Fried Baby Corn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chilli Cauliflower"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Crispy Fried Vegetables"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Veg Spring Rolls"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bottled Water"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aerated Water"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fresh Lime Water/Soda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Masala Butter Milk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sweet / Salt Lassi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cold Coffee With Ice Cream"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cold Coffee Without Ice Cream"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Milk Shakes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fruit Punch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Horlicks / Bournvita"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hot Chocolate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Milk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Green Tea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ginger Tea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Masala Tea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nescafe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Filter Coffee"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paneer Pakora"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "French Fries"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Onion Thul Pakora"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aloo Bonda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Assorted Bajji"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mirchi Bajji"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mysore Bajji"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vegetable Cutlet"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Choice of Cereals"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Set Dosa with Mixed Vegetable Korma"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mysore Masala Dosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dahi Vada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chole Bhatura"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "M.L.A Pesarattu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pongal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Upma"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sambhar Vada Bowl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paper Masala Dosa (Family Dosa 70mm)"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paper Dosa (Family Dosa 70mm)"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Onion Uthappam / Masala Uthappam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Onion Rava Dosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rava Plain Dosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pesarattu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Onion Dosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ghee Roast Dosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Masala Dosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Plain Dosa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Poori"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Button Idly Bowl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Single Idly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sambar Idly Bowl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Idly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Seasonal Fresh Fruit Juice"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fresh Papaya Platter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Seasonal Fresh Fruit Platter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Buffet"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "RoomServiceItemType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "extra pillows",
+                                "synonyms": [
+                                    "pillows",
+                                    "more pillows",
+                                    "additional pillows"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blankets",
+                                "synonyms": [
+                                    "blanket",
+                                    "extra blankets",
+                                    "more blankets"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "trash removal",
+                                "synonyms": [
+                                    "remove trash",
+                                    "take out trash",
+                                    "empty trash",
+                                    "garbage removal"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "room cleaning",
+                                "synonyms": [
+                                    "cleaning",
+                                    "clean room",
+                                    "housekeeping",
+                                    "clean my room"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "newspaper",
+                                "synonyms": [
+                                    "news paper",
+                                    "today's newspaper",
+                                    "daily paper",
+                                    "morning paper"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fresh towels",
+                                "synonyms": [
+                                    "towels",
+                                    "new towels",
+                                    "clean towels",
+                                    "more towels",
+                                    "extra towels"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
