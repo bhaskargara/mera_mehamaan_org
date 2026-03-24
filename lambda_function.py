@@ -10,8 +10,10 @@ import random
 import os
 from twilio.rest import Client
 
+# ✅ Import both handlers from launch_request
+from launch_request import LaunchRequestHandler, LaunchMenuUserEventHandler
 # Update this line (around line 10)
-from launch_request import LaunchRequestHandler, LaunchMenuUserEventHandler, LaunchCabUserEventHandler, PhoneNumberIntentHandler, PhoneSubmittedEventHandler
+from launch_request import LaunchRequestHandler, LaunchMenuUserEventHandler, LaunchCabUserEventHandler
 
 # Import custom modules
 # from menu_function import MenuIntentHandler
@@ -1643,7 +1645,7 @@ class NoIntentHandler(AbstractRequestHandler):
         
         # ✅ PRIORITY 1: Cab Service - "Would you like to book another cab?"
         if session_attr.get("awaiting_cab_another_response"):
-            logger.info("NO in cab context - returning to launch screen")
+            logger.info("NO in cab context - showing thank you screen")
             session_attr["awaiting_cab_another_response"] = False
             
             # Clear all cab-related session data
@@ -1651,10 +1653,124 @@ class NoIntentHandler(AbstractRequestHandler):
             session_attr.pop("cab_room_number", None)
             session_attr.pop("cab_destination", None)
             
-            speak_output = "Thank you for using our cab service. How may I help you?"
+            speak_output = "Thank you for using our Mera Mehmaan cab service. Have a wonderful day!"
             
-            # Return to launch screen
-            return LaunchRequestHandler().handle(handler_input)
+            # ADD YOUR APL DOCUMENT HERE
+            apl_doc = {
+                "type": "APL",
+                "version": "1.7",
+                "mainTemplate": {
+                    "parameters": ["payload"],
+                    "items": [
+                        {
+                            "type": "Container",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "items": [
+                                # Background
+                                {
+                                    "type": "Image",
+                                    "source": "https://media.istockphoto.com/id/922930296/video/grey-abstract-background.jpg?s=640x640&k=20&c=JTQRynekqaCHvt7Cu4xYdnHXrwKAprS_KTJJvAN5Us4=",
+                                    "scale": "best-fill",
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "position": "absolute"
+                                },
+                                
+                                # Thank you container
+                                {
+                                    "type": "Container",
+                                    "direction": "column",
+                                    "alignItems": "center",
+                                    "justifyContent": "center",
+                                    "paddingLeft": "40dp",
+                                    "paddingRight": "40dp",
+                                    "items": [
+                                        # Cab service icon
+                                        {
+                                            "type": "Text",
+                                            "text": "🚕",
+                                            "fontSize": "100dp",
+                                            "paddingBottom": "20dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Service heading
+                                        {
+                                            "type": "Text",
+                                            "text": "CAB SERVICE",
+                                            "fontSize": "48dp",
+                                            "color": "#FFA500",
+                                            "fontWeight": "bold",
+                                            "textAlign": "center",
+                                            "paddingBottom": "20dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Thank you message
+                                        {
+                                            "type": "Text",
+                                            "text": "Thank you for using our cab service",
+                                            "fontSize": "28dp",
+                                            "color": "#000000",
+                                            "fontWeight": "600",
+                                            "textAlign": "center",
+                                            "paddingBottom": "20dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Thank you heading
+                                        {
+                                            "type": "Text",
+                                            "text": "THANK YOU!",
+                                            "fontSize": "56dp",
+                                            "color": "#27ae60",
+                                            "fontWeight": "bold",
+                                            "textAlign": "center",
+                                            "paddingBottom": "30dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Mera Mehmaan branding
+                                        {
+                                            "type": "Frame",
+                                            "backgroundColor": "rgba(255,165,0,0.15)",
+                                            "borderRadius": "16dp",
+                                            "borderWidth": "2dp",
+                                            "borderColor": "#FFA500",
+                                            "paddingLeft": "40dp",
+                                            "paddingRight": "40dp",
+                                            "paddingTop": "20dp",
+                                            "paddingBottom": "20dp",
+                                            "items": [
+                                                {
+                                                    "type": "Text",
+                                                    "text": "Mera Mehmaan 🙏",
+                                                    "fontSize": "32dp",
+                                                    "color": "#FFA500",
+                                                    "fontWeight": "bold",
+                                                    "textAlign": "center",
+                                                    "fontFamily": "Amazon Ember"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+            return (
+                handler_input.response_builder
+                    .speak(speak_output)
+                    .add_directive(RenderDocumentDirective(document=apl_doc))  # ✅ This shows APL
+                    .ask("Have a wonderful day!")
+                    .response
+            )
+           
             
         elif session_attr.get("awaiting_order_more_response"):
             session_attr.pop("awaiting_order_more_response", None)
@@ -1805,10 +1921,123 @@ class NoIntentHandler(AbstractRequestHandler):
             logger.info(f"User said NO to room service - clearing room number {room_number}")
             session_attr.pop('room_number', None)
             
-            speak_output = "Thank you for using our room service. How may I help you?"
+            speak_output = "Thank you for using our Mera Mehmaan room service. Have a wonderful day!"
             
-            # Return to launch screen
-            return LaunchRequestHandler().handle(handler_input)
+            # Room service thank you APL
+            apl_doc = {
+                "type": "APL",
+                "version": "1.7",
+                "mainTemplate": {
+                    "parameters": ["payload"],
+                    "items": [
+                        {
+                            "type": "Container",
+                            "width": "100vw",
+                            "height": "100vh",
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                            "items": [
+                                # Background
+                                {
+                                    "type": "Image",
+                                    "source": "https://media.istockphoto.com/id/922930296/video/grey-abstract-background.jpg?s=640x640&k=20&c=JTQRynekqaCHvt7Cu4xYdnHXrwKAprS_KTJJvAN5Us4=",
+                                    "scale": "best-fill",
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "position": "absolute"
+                                },
+                                
+                                # Thank you container
+                                {
+                                    "type": "Container",
+                                    "direction": "column",
+                                    "alignItems": "center",
+                                    "justifyContent": "center",
+                                    "paddingLeft": "40dp",
+                                    "paddingRight": "40dp",
+                                    "items": [
+                                        # Room service icon
+                                        {
+                                            "type": "Text",
+                                            "text": "🛎️",
+                                            "fontSize": "100dp",
+                                            "paddingBottom": "20dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Service heading
+                                        {
+                                            "type": "Text",
+                                            "text": "ROOM SERVICE",
+                                            "fontSize": "48dp",
+                                            "color": "#3498db",
+                                            "fontWeight": "bold",
+                                            "textAlign": "center",
+                                            "paddingBottom": "20dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Thank you message
+                                        {
+                                            "type": "Text",
+                                            "text": "Thank you for using our room service",
+                                            "fontSize": "28dp",
+                                            "color": "#000000",
+                                            "fontWeight": "600",
+                                            "textAlign": "center",
+                                            "paddingBottom": "20dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Thank you heading
+                                        {
+                                            "type": "Text",
+                                            "text": "THANK YOU!",
+                                            "fontSize": "56dp",
+                                            "color": "#27ae60",
+                                            "fontWeight": "bold",
+                                            "textAlign": "center",
+                                            "paddingBottom": "30dp",
+                                            "fontFamily": "Amazon Ember"
+                                        },
+                                        
+                                        # Mera Mehmaan branding
+                                        {
+                                            "type": "Frame",
+                                            "backgroundColor": "rgba(52,152,219,0.15)",
+                                            "borderRadius": "16dp",
+                                            "borderWidth": "2dp",
+                                            "borderColor": "#3498db",
+                                            "paddingLeft": "40dp",
+                                            "paddingRight": "40dp",
+                                            "paddingTop": "20dp",
+                                            "paddingBottom": "20dp",
+                                            "items": [
+                                                {
+                                                    "type": "Text",
+                                                    "text": "Mera Mehmaan 🙏",
+                                                    "fontSize": "32dp",
+                                                    "color": "#3498db",
+                                                    "fontWeight": "bold",
+                                                    "textAlign": "center",
+                                                    "fontFamily": "Amazon Ember"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+            
+            return (
+                handler_input.response_builder
+                    .speak(speak_output)
+                    .add_directive(RenderDocumentDirective(document=apl_doc))
+                    .response
+            )
             
         # ✅ SECOND NO: Menu selection - Go back to last category
         elif session_attr.get("awaiting_menu_selection"):
@@ -2016,8 +2245,6 @@ sb = SkillBuilder()
 
 # 1. Launch Handler
 sb.add_request_handler(LaunchRequestHandler())
-sb.add_request_handler(PhoneNumberIntentHandler())
-sb.add_request_handler(PhoneSubmittedEventHandler())
 
 # 2. Room Service Handlers
 for handler in ROOM_SERVICE_HANDLERS:
